@@ -99,6 +99,12 @@ Open new terminal and paste below code:
     ```
 
 4. The React app should now be running at `http://localhost:3000/`.
+<img width="1440" alt="Screenshot 2024-04-23 at 17 44 26" src="https://github.com/saashish7070/BlogApp/assets/69105660/17375b8c-8d39-4399-ac67-d9d5f8472a27">
+<img width="1440" alt="Screenshot 2024-04-23 at 17 44 39" src="https://github.com/saashish7070/BlogApp/assets/69105660/03b62d01-af97-4f72-9cae-90a19267b0a1">
+<img width="1440" alt="Screenshot 2024-04-23 at 17 44 55" src="https://github.com/saashish7070/BlogApp/assets/69105660/0049765d-837b-4ee0-a4d7-034276a219b2">
+<img width="1440" alt="Screenshot 2024-04-23 at 17 45 04" src="https://github.com/saashish7070/BlogApp/assets/69105660/1808fdbc-b73b-4e01-86ec-e9840cc63b0c">
+
+   
 
 ## Usage
 
