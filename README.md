@@ -29,6 +29,10 @@ Open terminal and paste below code:
     ```bash
     python -m venv env
     ```
+    or
+    ```bash
+    python3 -m venv env
+    ```
 
 4. Activate the virtual environment:
 
