@@ -47,6 +47,7 @@ This repository contains a Django backend and a React frontend. Follow the instr
 
     ```bash
     pip install -r requirements.txt
+    cd blogproject
     ```
 
 6. Apply migrations:
