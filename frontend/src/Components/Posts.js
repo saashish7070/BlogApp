@@ -23,6 +23,17 @@ const Posts = () => {
         navigate('/post');
     };
 
+    // Function to delete a post
+    const deletePost = async (postId) => {
+        try {
+            await axios.delete(`http://localhost:8000/api/Posts/${postId}/`);
+            setPosts(posts.filter(post => post.id !== postId)); // Remove the deleted post from state
+            console.log('Post deleted successfully');
+        } catch (error) {
+            console.error('Error deleting post:', error);
+        }
+    };
+
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -42,19 +53,20 @@ const Posts = () => {
             <div className="row">
                 {currentPosts.map(post => (
                     <div key={post.id} className="col-lg-4 mb-4">
-                    <div className="card h-100 shadow-sm rounded border">
-                        <div className="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h2 className="card-title">{post.title}</h2>
-                                <p className="card-text text-muted">Published on: {new Date(post.date).toLocaleDateString()}</p>
-                                <p className="card-text">{post.content.split(' ').slice(0, 20).join(' ')}</p>
-                            </div>
-                            <div className="mt-auto text-center">
-                            <a href={`http://localhost:3000/post/${post.id}`} className="btn btn-dark text-white">Read more</a>
+                        <div className="card h-100 shadow-sm rounded border">
+                            <div className="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h2 className="card-title">{post.title}</h2>
+                                    <p className="card-text text-muted">Published on: {new Date(post.date).toLocaleDateString()}</p>
+                                    <p className="card-text">{post.content.split(' ').slice(0, 20).join(' ')}</p>
+                                </div>
+                                <div className="mt-auto text-center">
+                                    <a href={`http://localhost:3000/post/${post.id}`} className="btn btn-dark text-white mr-2">Read more</a>
+                                    <button className="btn btn-danger" onClick={() => deletePost(post.id)}>Delete</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>                
+                    </div>                
                 ))}
             </div>
             {posts.length > postsPerPage && (
