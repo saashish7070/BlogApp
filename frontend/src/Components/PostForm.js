@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate for redirection
 
 const NewPostForm = () => {
     const [formData, setFormData] = useState({
@@ -42,9 +42,6 @@ const NewPostForm = () => {
         }
     };
 
-    function handleBack(){
-        navigate('/')
-    }
     return (
         <div className="container d-flex flex-column align-items-center">
             <h2 className="text-center mt-3">Blog Post Form</h2>
@@ -59,9 +56,8 @@ const NewPostForm = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-            <button onClick={handleBack} className="btn btn-secondary mt-3">Back</button>
+            <Link to="/" className="btn btn-secondary mt-3">Back</Link> {/* Use Link component */}
         </div>
-
     );
 };
 

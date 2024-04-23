@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Pagination } from 'react-bootstrap';
 
 const Posts = () => {
@@ -23,16 +23,27 @@ const Posts = () => {
         navigate('/post');
     };
 
+    const handlePageReload = () => {
+        window.location.reload(); // Reload the page
+    };
+
+    // Function to delete a post
     // Function to delete a post
     const deletePost = async (postId) => {
+        // Confirm deletion with the user
+        const confirmDelete = window.confirm('Are you sure you want to delete this post?');
+        if (!confirmDelete) return; // If user cancels, exit function
+
         try {
             await axios.delete(`http://localhost:8000/api/Posts/${postId}/`);
             setPosts(posts.filter(post => post.id !== postId)); // Remove the deleted post from state
             console.log('Post deleted successfully');
+            handlePageReload(); // Reload the page after deleting a post
         } catch (error) {
             console.error('Error deleting post:', error);
         }
     };
+
 
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
@@ -61,7 +72,7 @@ const Posts = () => {
                                     <p className="card-text">{post.content.split(' ').slice(0, 20).join(' ')}</p>
                                 </div>
                                 <div className="mt-auto text-center">
-                                    <a href={`http://localhost:3000/post/${post.id}`} className="btn btn-dark text-white mr-2">Read more</a>
+                                    <Link to={`/post/${post.id}`} className="btn btn-dark text-white mr-2">Read more</Link>
                                     <button className="btn btn-danger" onClick={() => deletePost(post.id)}>Delete</button>
                                 </div>
                             </div>

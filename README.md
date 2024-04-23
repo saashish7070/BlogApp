@@ -9,6 +9,7 @@ This repository contains a Django backend and a React frontend. Follow the instr
 - npm (Node Package Manager)
 
 ## Backend Setup (Django)
+Open terminal and paste below code:
 
 1. Clone the repository:
 
@@ -72,9 +73,12 @@ This repository contains a Django backend and a React frontend. Follow the instr
 
 ## Frontend Setup (React)
 
+Open new terminal and paste below code:
+
 1. Navigate to the frontend directory:
 
     ```bash
+    cd BlogApp
     cd frontend
     ```
 
