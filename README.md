@@ -14,6 +14,7 @@ This repository contains a Django backend and a React frontend. Follow the instr
 
     ```bash
     git clone https://github.com/saashish7070/BlogApp.git
+    cd BlogApp
     ```
 
 2. Navigate to the backend directory:
